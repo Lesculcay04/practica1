@@ -23,7 +23,7 @@ class PedidoService {
     fun save(pedido: Pedido):Pedido{
         try {
             clienteRepository.findById(pedido.clienteId)
-                    ?: throw Exception("Id del cliente no encontrada")
+                    ?: throw Exception("Id del cliente no encontrados")
             return pedidoRepository.save(pedido)
         }catch (ex : Exception){
             throw ResponseStatusException(
