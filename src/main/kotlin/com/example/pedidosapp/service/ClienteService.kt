@@ -19,6 +19,8 @@ class ClienteService {
 
     fun save(cliente: Cliente): Cliente {
         try{
+            cliente.nombre?.takeIf { it.trim().isNotEmpty() }
+                ?: throw Exception("Nombres no debe ser vacio")
             return clienteRepository.save(cliente)
         }
         catch (ex:Exception){
