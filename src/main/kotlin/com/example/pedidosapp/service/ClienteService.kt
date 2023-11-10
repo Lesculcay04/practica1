@@ -57,6 +57,7 @@ class ClienteService {
     fun delete (id: Long?):Boolean?{
         try{
             val response = clienteRepository.findById(id)
+
                     ?: throw Exception("ID no existe")
             clienteRepository.deleteById(id!!)
             return true
